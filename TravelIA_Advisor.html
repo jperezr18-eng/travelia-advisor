@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.65">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    span.s1 {font: 12.0px 'Zapf Dingbats'}
+    span.s2 {font: 12.0px 'Apple Color Emoji'}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;TravelIA Advisor - Sistema de Gestión Turística Inteligente&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--bg-canvas: #f4f6f7;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--earth-tone: #bc9377;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--earth-dark: #a47d61;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--blue-deep: #232d42;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--blue-medium: #3b4e6d;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--text-main: #2b2b2b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--text-muted: #5a6e72;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--white: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--gray-light: #e5ecef;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--gray-border: #cbd6da;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--accent-glow: rgba(188, 147, 119, 0.2);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>* {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>-webkit-tap-highlight-color: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--bg-canvas);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-main);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Contenedor del Dispositivo / Tótem de Gestión */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.app-kiosk-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 480px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 820px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 25px 55px rgba(35, 45, 66, 0.18);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 4px solid var(--blue-deep);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Capas Decorativas Asimétricas de Estilo Geométrico Abstracto */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.geo-abstract-layer {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.polygon-canvas-top {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>right: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 90%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 65%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--blue-medium);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.07;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 0% 100%);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.polygon-canvas-bottom {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 60%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--earth-tone);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.11;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>clip-path: polygon(0 40%, 100% 85%, 100% 100%, 0% 100%);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Encabezado Principal */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.kiosk-header {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--blue-deep);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 26px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 5px solid var(--earth-tone);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 10px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.kiosk-header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.4rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 800;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.kiosk-header p {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.85rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.8;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 400;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Barra Guía de Progreso Iterativo */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.kiosk-progress-track {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--gray-light);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 2;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.kiosk-progress-fill {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--earth-tone);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 20%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Área Operativa de Trabajo (Workspace) */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.kiosk-workspace {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-y: auto;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.step-panel {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.step-panel.panel-active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: panelTransition 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes panelTransition {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from { opacity: 0; transform: translateY(12px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to { opacity: 1; transform: translateY(0); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.step-panel h2 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.25rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--blue-deep);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Componentes del Menú de Selección Táctil */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.selection-grid-vertical {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tile-option-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.95);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid var(--blue-medium);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--blue-deep);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 16px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.95rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.2s ease-in-out;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 8px rgba(35, 45, 66, 0.04);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tile-option-btn:hover, .tile-option-btn:focus {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--blue-deep);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: var(--blue-deep);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateX(4px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 6px 12px rgba(35, 45, 66, 0.15);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tile-option-btn::after {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '<span class="s1">➔</span>';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.85rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tile-option-btn:hover::after {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateX(3px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Controles Específicos para el Segmento de Presupuesto */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.budget-interactive-area {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 15px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.8);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid var(--gray-border);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.budget-numeric-callout {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 800;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--blue-deep);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: -0.5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.budget-input-slider {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--gray-light);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>accent-color: var(--earth-tone);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.action-submit-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--earth-tone);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 1px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background 0.2s, box-shadow 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 5px 15px var(--accent-glow);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.action-submit-btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--earth-dark);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 6px 18px rgba(188, 147, 119, 0.4);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Renderizado de Tarjetas de Resultados Sugeridos */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.results-scrollable-deck {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-height: 420px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-y: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-right: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.results-scrollable-deck::-webkit-scrollbar {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.results-scrollable-deck::-webkit-scrollbar-thumb {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--blue-medium);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.destination-package-card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-left: 6px solid var(--earth-tone);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 6px 16px rgba(0,0,0,0.05);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-top: 1px solid rgba(0,0,0,0.02);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-right: 1px solid rgba(0,0,0,0.02);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid rgba(0,0,0,0.02);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.destination-package-card h3 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--blue-deep);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.metadata-pill-box {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pill-tag {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--gray-light);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--blue-medium);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.7rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 4px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.3px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pill-tag.budget-pill {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(46, 125, 50, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #2e7d32;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.itinerary-manifesto {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.86rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-main);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.45;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #fafbfc;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px dashed var(--gray-border);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.agency-attribution-line {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-muted);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cta-broker-link {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--blue-deep);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.88rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cta-broker-link:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--earth-tone);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.reset-workflow-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid var(--blue-deep);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--blue-deep);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.reset-workflow-btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--gray-light);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="app-kiosk-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="geo-abstract-layer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="polygon-canvas-top"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="polygon-canvas-bottom"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="kiosk-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;TravelIA Advisor&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Consola de Gestión y Calificación de Viajeros&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="kiosk-progress-track"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="kiosk-progress-fill" id="uiProgressBar"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="kiosk-workspace"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-panel panel-active" id="panelStage1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Paso 1: Clasifique el rango biológico/edad del turista&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="selection-grid-vertical"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="tile-option-btn" onclick="commitPreference('edad', 'Adolescencia', 2)"&gt;Adolescencia&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="tile-option-btn" onclick="commitPreference('edad', 'Adulto Joven', 2)"&gt;Adulto Joven&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="tile-option-btn" onclick="commitPreference('edad', 'Adulto Maduro', 2)"&gt;Adulto Maduro&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="tile-option-btn" onclick="commitPreference('edad', 'Tercera Edad', 2)"&gt;Tercera Edad&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-panel" id="panelStage2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Paso 2: ¿Cuál es la motivación de experiencia del usuario?&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="selection-grid-vertical"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="tile-option-btn" onclick="commitPreference('interes', 'Descanso', 3)"&gt;Descanso&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="tile-option-btn" onclick="commitPreference('interes', 'Aventura', 3)"&gt;Aventura&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="tile-option-btn" onclick="commitPreference('interes', 'Planes Extremos', 3)"&gt;Planes Extremos&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="tile-option-btn" onclick="commitPreference('interes', 'Relajación', 3)"&gt;Relajación&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-panel" id="panelStage3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Paso 3: Seleccione el ecosistema climático predilecto&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="selection-grid-vertical"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="tile-option-btn" onclick="commitPreference('clima', 'Selvático', 4)"&gt;Selvático&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="tile-option-btn" onclick="commitPreference('clima', 'Playa', 4)"&gt;Playa&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="tile-option-btn" onclick="commitPreference('clima', 'Caluroso', 4)"&gt;Caluroso&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="tile-option-btn" onclick="commitPreference('clima', 'Montañoso', 4)"&gt;Montañoso&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-panel" id="panelStage4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Paso 4: Defina el tope máximo de inversión (USD)&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="budget-interactive-area"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="budget-numeric-callout" id="budgetDisplay text-center"&gt;$2500&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="range" class="budget-input-slider" id="budgetSliderRange" min="600" max="6000" step="100" value="2500" oninput="syncBudgetElement(this.value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="action-submit-btn" onclick="processKnowledgeRules()"&gt;Computar Destinos Óptimos&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-panel" id="panelStage5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Alternativas Globales Recomendadas&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="results-scrollable-deck" id="deckSugerencias"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="reset-workflow-btn" onclick="rebootWorkflow()"&gt;Nueva Calificación&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Objeto de Estado Transaccional de la Sesión de Usuario</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let runtimeProfile = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>edad: '',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>interes: '',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>clima: '',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>presupuesto: 2500</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Base de Conocimiento de Destinos Expandida para Reglas Cruzadas Complejas del Sprint 1</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const rulesEngineKnowledgeBase = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ pais: "Costa Rica", clima: "Selvático", interes: "Aventura", floorBudget: 1300, plan: "Boleto internacional + Alojamiento en Eco-Lodge sostenible + Ruta guiada de Canopy extremo por el bosque nuboso y trekking al volcán Arenal.", broker: "Pura Vida Global Journeys Ltd.", channel: "https://wa.me/50688888888" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ pais: "Brasil", clima: "Caluroso", interes: "Aventura", floorBudget: 1600, plan: "Vuelos ida y vuelta + Hotel con desayuno + Safari de exploración en vehículos abiertos 4x4 por la selva tropical del Amazonas.", broker: "Amazonas Expedition Group", channel: "https://wa.me/5511999999999" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ pais: "Grecia", clima: "Playa", interes: "Descanso", floorBudget: 2500, plan: "Aéreos transatlánticos clase turista premium + Estancia todo incluido en Resort frente al Mar Egeo (Mykonos) + Crucero diurno.", broker: "Hellenic Premium Leisure", channel: "mailto:reservas@hellenicleisure.gr" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ pais: "Indonesia", clima: "Playa", interes: "Relajación", floorBudget: 2100, plan: "Tiquetes aéreos integrados + Villa exclusiva con piscina infinita en Ubud (Bali) + Sesiones personalizadas de yoga y meditación.", broker: "IndoBali Serenity Tours", channel: "mailto:support@indobaliserenity.id" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ pais: "Suiza", clima: "Montañoso", interes: "Planes Extremos", floorBudget: 3400, plan: "Vuelo transcontinental + Pases de acceso total a los andariveles de Zermatt + Salto guiado en paracaídas tándem sobre los glaciares.", broker: "Alps Extreme Skydiving Specialists", channel: "mailto:fly@alpsextremespecialists.ch" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ pais: "Canadá", clima: "Montañoso", interes: "Aventura", floorBudget: 1800, plan: "Pasajes de avión + Cabaña de montaña en el Parque Nacional Banff + Circuito guiado de senderismo por lagos alpinos y glaciares.", broker: "Maple Ridge Outfitters", channel: "https://wa.me/14155552671" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ pais: "Marruecos", clima: "Caluroso", interes: "Descanso", floorBudget: 1400, plan: "Vuelo y conexiones + Traslado privado + Noche en campamento de jaimas de lujo en el desierto del Sahara con cena tradicional.", broker: "Sahara Dunes Hospitality", channel: "https://wa.me/21260000000" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ pais: "Perú", clima: "Montañoso", interes: "Relajación", floorBudget: 1200, plan: "Vuelos regionales + Ticket de tren de lujo Hiram Bingham + Estancia wellness y spa termal especializado en el Valle Sagrado de los Incas.", broker: "Andean Wellness Networks", channel: "https://wa.me/51999999999" }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function syncBudgetElement(numericValue) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('budgetDisplay text-center').innerText = `$${numericValue} USD`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>runtimeProfile.presupuesto = parseInt(numericValue);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function commitPreference(dataKey, pickedValue, onwardStage) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>runtimeProfile[dataKey] = pickedValue;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>navigateStage(onwardStage);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function navigateStage(targetStageIndex) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.querySelectorAll('.step-panel').forEach(panel =&gt; panel.classList.remove('panel-active'));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(`panelStage${targetStageIndex}`).classList.add('panel-active');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Computación analítica de la barra visual de progreso lineal</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('uiProgressBar').style.width = `${(targetStageIndex / 5) * 100}%`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function processKnowledgeRules() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const viewportDeck = document.getElementById('deckSugerencias');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>viewportDeck.innerHTML = ''; // Sanear ejecuciones previas</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Algoritmo de Inferencia Estricto (Cruza de Clima, Intereses y Umbral Financiero)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let filteredOutcomes = rulesEngineKnowledgeBase.filter(item =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return item.clima === runtimeProfile.clima &amp;&amp;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                       </span>item.interes === runtimeProfile.interes &amp;&amp;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                       </span>item.floorBudget &lt;= runtimeProfile.presupuesto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (filteredOutcomes.length === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>viewportDeck.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div style="text-align: center; padding: 35px 15px; color: var(--text-muted);"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span style="font-size: 3rem;"&gt;<span class="s2">🔍</span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p style="margin-top: 15px; font-weight: 700; color: var(--blue-deep);"&gt;Sin Coincidencias Financieras o de Criterio&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p style="font-size: 0.85rem; margin-top: 8px; line-height: 1.4;"&gt;El presupuesto máximo parametrizado ($${runtimeProfile.presupuesto} USD) está por debajo de los costos operativos de los paquetes consolidados para la categoría &lt;strong&gt;${runtimeProfile.clima} / ${runtimeProfile.interes}&lt;/strong&gt;.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p style="font-size: 0.82rem; margin-top: 12px; color: var(--earth-tone); font-weight: bold;"&gt;Acción Sugerida: Reinicie el flujo e incremente la holgura económica o flexibilice los entornos climáticos.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>filteredOutcomes.forEach(matchItem =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const structuralCard = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>structuralCard.className = 'destination-package-card';</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>structuralCard.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;${matchItem.pais} &lt;span style="font-size:1.1rem;"&gt;<span class="s2">📍</span>&lt;/span&gt;&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="metadata-pill-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="pill-tag"&gt;${runtimeProfile.edad}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="pill-tag"&gt;Clima: ${matchItem.clima}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="pill-tag"&gt;${matchItem.interes}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="pill-tag budget-pill"&gt;Base: $${matchItem.floorBudget} USD&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="itinerary-manifesto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;strong&gt;Configuración del Plan Comercial:&lt;/strong&gt; ${matchItem.plan}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="agency-attribution-line"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span&gt;<span class="s2">🏢</span>&lt;/span&gt; &lt;strong&gt;Agencia Responsable:&lt;/strong&gt; ${matchItem.broker}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="${matchItem.channel}" target="_blank" class="cta-broker-link"&gt;Contactar Asesor de Agencia (Bloquear Paquete Completo)&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>viewportDeck.appendChild(structuralCard);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>navigateStage(5);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function rebootWorkflow() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>runtimeProfile = { edad: '', interes: '', clima: '', presupuesto: 2500 };</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('budgetSliderRange').value = 2500;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('budgetDisplay text-center').innerText = "$2500 USD";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>navigateStage(1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
